@@ -5,34 +5,43 @@
 //  Created by Laasya Priya vemuri on 9/30/26.
 //
 
+
 import XCTest
 @testable import MoviesAppSwiftUI
 
+// Problem Statement: Implement a stack
+// Operations: Push, Pop
+
+// Problem: SortedSet
+// Implement Array as a Set - insert one element, insert multiple elements,
+// Delete 1 ele, del multiple ele
+// Return count
+
+
 final class MoviesAppSwiftUITests: XCTestCase {
+    
+    var myStack: MyStack?
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        myStack = MyStack(stack: [])
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        myStack = nil
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
+    
+    func testPush() {
+        myStack?.push(value: 10)
+        XCTAssertEqual(myStack?.stack, [10])
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testPop() {
+        let poppedValue1 = myStack?.pop()
+        XCTAssertEqual(poppedValue1, nil)
+        
+        myStack?.push(value: 10)
+        let poppedValue2 = myStack?.pop()
+        XCTAssertEqual(poppedValue2, 10)
     }
 
 }
