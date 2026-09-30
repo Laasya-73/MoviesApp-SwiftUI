@@ -11,7 +11,7 @@ import SwiftUI
 struct MoviesAppSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MoviesScreen(viewModel: MovieViewModel(objNetwork: NetworkManager.shared))
         }
     }
 }
